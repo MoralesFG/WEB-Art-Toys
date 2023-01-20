@@ -1,0 +1,263 @@
+/* FUENTES */
+@font-face {
+    font-family: 'blackoutmidnight';
+    src: url('../fonts/blackout-midnight-webfont.woff') format('woff'), url('../fonts/blackout-midnight-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ICONOS */
+
+@font-face {
+    font-family: 'redes';
+    src:
+    url('../fonts/redes.woff?1degzw') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+i {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'redes' !important;
+    speak-as: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
+.icon-facebook:before {
+    content: "\e900";
+}
+.icon-instagram:before {
+    content: "\e901";
+}
+.icon-twitter:before {
+    content: "\e902";
+}
+
+/***************************************************************************************************************************/
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+header {
+    background-color: white;
+    height: 120px; /*cambiar por 100px cuando cambie la fuente */
+    padding-bottom: 15px;
+}
+
+.cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo {
+    font-size: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    
+    padding-top: 30px;
+    font-family: 'blackoutmidnight';
+    
+    border-bottom: 4px solid;    padding-bottom: 15px;
+    line-height: 15px;
+}
+
+.subtitulo {
+    font-size: 30px;
+    text-align: center;
+    font-weight: lighter;
+    font-family: 'Open Sans';
+}
+
+/****************************************************************/
+
+body {
+    background-color: #c2ebe2;
+    display: flex; 
+    flex-direction: column;
+    width: 100%;
+    height: 100vh; /*estos ultimos tres ajustes son para que el footer quede pegado abajo y bi en mitad */
+}
+
+.contenido {
+    max-width: 800px;
+    margin: auto;
+    padding: 15px;
+    font-weight: bold;
+    
+}
+
+.noticias {
+    padding-top: 20px;
+}
+
+.noticias__articulo img {
+    object-fit: cover;
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.noticias__imagen {
+    overflow: hidden;
+}
+
+.zoom {
+    transition: 0.4s;
+}
+
+.zoom:hover {
+    transform: scale(1.1);
+    transition: ease-in-out 0.4s;
+}
+
+img:hover {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+
+.noticias__articulo {
+    margin-bottom: 30px;
+    background-color: #39B296;
+    border-radius: 30px;
+    /*quitamos display flex para que la foto se adapte bien*/
+}
+
+.noticias__articulo > * {
+    flex: 0 50%;
+}
+
+.noticias__titulo {
+    /* display: flex; */
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden;
+    display: inline-block;
+
+    padding-left: 25px;
+}
+
+.titulo__h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    font-family: 'blackoutmidnight';
+    color: white;
+}
+
+.contenido__texto {
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: lighter;
+    display: inline;
+    background-color: white;
+    line-height: 25px;
+    /* para que el background se adapte a la linea y no a la caja */
+}
+
+.linea__dos {
+    border-bottom: 2px solid white;
+    width: 100%;
+    padding-top: 15px;
+}
+
+.contenido__piefoto {
+    font-family: 'Open Sans';
+    padding-top: 15px;
+    font-weight: bold;
+}
+
+.texto__blanco {
+    color: white;
+    font-weight: lighter;
+}
+
+.texto__light {
+    font-weight: lighter;
+}
+
+.contenido__piefotodos {
+    font-family: 'Open Sans';
+    font-weight: bold;
+}
+
+/****************************************************************/
+
+.pie {
+    background-color: white;
+    height: 120px;
+}
+
+.icons {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.icons li {
+    margin: 0 15px;
+    display: flex; /* para poder centrar los items dentro */
+}
+
+.icons li a {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border-radius: 100px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    /* con los últimos tres ajustes se centrará el botón */
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.icons li a:hover {
+    background-color: #39B296;
+}
+
+
+/***********************************************************************************************************************************MEDIA*************************************************************************************************************************************/
+
+/* TABLET */
+
+@media (min-width: 768px) {
+    
+    .noticias__articulo {
+        display: flex;
+    }
+
+    .noticias__articulo img {
+        object-fit: cover;
+        width: 100%;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 0px;
+    }
+
+    .noticias__titulo {
+        display: inline;
+    }
+    
+    .contenido__texto {
+        background-color: white;
+        line-height: 25px;
+    }
+}
+
+/* 3 ERRORES
+1. el encabezado y el pie muestran un hueco de fondo por detrás al hacer scroll
+
+2. las imagenes se amplian con hover pero pierden la propiedad de las esquinas. 
